@@ -4,30 +4,11 @@ import 'package:flutter/material.dart';
 class Screen3 extends StatelessWidget {
   const Screen3({super.key});
 
-  final pilotos = const [
-    'Charles Leclerc',
-    'Lewis Hamilton',
-    'Lando Norris',
-    'Oscar Piastri',
-    'Max Verstappen',
-    'Liam Lawson',
-    'George Russell',
-    'Kimi Antonelli',
-    'Fernando Alonso',
-    'Lance Stroll',
-    'Carlos Sainz',
-    'Alexander Albon',
-    'Pierre Gasly',
-    'Franco Colapinto',
-    'Yuki Tsunoda',
-    'Isack Hadjar',
-    'Esteban Ocon',
-    'Oliver Bearman',
-    'Nico Hülkenberg',
-    'Gabriel Bortoleto',
-    'Sergio Pérez',
-    'Valtteri Bottas',
-  ];
+  final Map<String, String> pilotos = const {
+    'Kimi Antonelli': 'assets/imgs/f7.jpg',
+    'George Russell': 'assets/imgs/f6.jpg',
+    'Sergio Pérez': 'assets/imgs/f8.jpg',
+  };
 
   final escuderias = const [
     'Ferrari',
@@ -54,22 +35,16 @@ class Screen3 extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          ...pilotos.map(
-            (piloto) => ListTile(
-              leading: const Icon(
-                Icons.person_2_outlined,
-                color: Color(0xFFE10600),
-              ),
-              title: Text(piloto),
-              subtitle: const Text('Menos excusas, más caballos de fuerza'),
-              trailing: const Icon(Icons.arrow_forward),
-              tileColor: const Color(
-                0xFF1F1F2E,
-              ), // Gris carbono oscuro para pilotos
-              iconColor: Colors.white70,
-              textColor: CupertinoColors.lightBackgroundGray,
-            ),
-          ),
+          ...pilotos.entries.map((piloto) {
+            return _tilePiloto(
+              piloto.key,
+              piloto.value,
+              const Color.fromARGB(255, 28, 14, 118),
+              const Color.fromARGB(255, 158, 29, 29),
+              Colors.white,
+            );
+          }),
+
           const Divider(color: Color(0xFFE10600), height: 2, thickness: 1),
           ...escuderias.map(
             (escuderia) => ListTile(
@@ -90,5 +65,26 @@ class Screen3 extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget _tilePiloto(
+    String pilotoName,
+    String pilotoImage,
+    Color tileColor,
+    Color iconColor,
+    Color textColor,
+  ) {
+    final tile = ListTile(
+      leading: Image.asset(pilotoImage, width: 50, height: 50),
+      title: Text(pilotoName),
+      subtitle: const Text('Menos excusas, más caballos de fuerza'),
+      trailing: const Icon(Icons.arrow_forward),
+      tileColor: tileColor,
+      iconColor: iconColor,
+      textColor: textColor,
+    );
+
+    final espacio = SizedBox(height: 10);
+    return Column(children: [tile, espacio]);
   }
 }
