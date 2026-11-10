@@ -19,11 +19,18 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/imgs/f1.jpg
-    - assets/imgs/f2.jpg  
-    - assets/imgs/f3.jpg  
-    - assets/imgs/f5.jpg 
-    - assets/imgs/f6.jpg 
     - assets/imgs/f7.jpg 
-    - assets/imgs/f8.jpg 
+    - assets/imgs/f11.jpg 
+    - assets/imgs/f12.jpg 
+    - assets/imgs/f13.jpg
+    - assets/imgs/f14.jpg 
+    - assets/imgs/f15.jpg
+    - assets/imgs/f16.jpg 
+    - assets/imgs/f17.jpg  
+    - assets/imgs/f23.jpg 
+    - assets/imgs/f24.jpg 
+    - assets/imgs/f25.jpg 
+    - assets/imgs/f26.jpg 
+        
+
 
